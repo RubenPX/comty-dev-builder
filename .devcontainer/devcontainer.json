@@ -18,6 +18,10 @@
 				"mongodb.mongodb-vscode"
 			]
 		}
+	},
+
+	"remoteEnv": {
+		"DB_STRING": "mongodb://comtyuser:tusegura_contraseña@localhost:27017/comty?authSource=comty"
 	}
 
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.
