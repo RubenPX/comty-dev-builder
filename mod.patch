@@ -1,0 +1,28 @@
+diff --git a/packages/server/classes/DbManager/index.js b/packages/server/classes/DbManager/index.js
+index 285c67f2f..28765639a 100755
+--- a/packages/server/classes/DbManager/index.js
++++ b/packages/server/classes/DbManager/index.js
+@@ -38,8 +38,22 @@ export default class DBManager {
+         const dbConfig = getConnectionConfig(config ?? process.env)
+ 
+         mongoose.set("strictQuery", false)
++        let connection;
++        if (process.env.DB_STRING) {
++            connection = await mongoose.connect(process.env.DB_STRING)
++            .catch((err) => {
++                console.log(`❌ Failed to connect to DB, retrying...\n`)
++                console.log(err)
++
++                return false
++            })
++            if (connection) {
++                console.log(`✅ Connected to DB.`)
++            }
++            return;
++        }
+ 
+-        const connection = await mongoose.connect(...dbConfig)
++        connection = await mongoose.connect(...dbConfig)
+             .catch((err) => {
+                 console.log(`❌ Failed to connect to DB, retrying...\n`)
+                 console.log(err)

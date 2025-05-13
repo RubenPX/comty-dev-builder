@@ -22,6 +22,7 @@ EOF
 # Clone and patch comty
 
 bash -i -c 'nvm install --lts && nvm use --lts'
-git clone --recurse-submodules https://github.com/ragestudio/comty && cd comty
-git apply CustomCodePach.patch
+git clone --recurse-submodules https://github.com/ragestudio/comty
+cd comty
+patch -p1 -N < ../mod.patch
 npm i
