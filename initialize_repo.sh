@@ -26,3 +26,19 @@ git clone --recurse-submodules https://github.com/ragestudio/comty
 cd comty
 patch -p1 -N < ../mod.patch
 npm i
+
+bash packages/server/scripts/installNginxStatic.sh
+
+cp comty-server.env comty/packages/server/.env
+
+echo "#########################################################################"
+echo "# Admin login"
+echo "# User: root"
+echo "# password: changemeorgethacked"      
+echo "#########################################################################"
+echo "# run these commands to run comty"
+echo "# cd comty"
+echo "# npm run dev"
+echo "#########################################################################"
+echo "# Note: Vite HMR does not work with firefox. Maybe firefox is not working"
+echo "#########################################################################"
