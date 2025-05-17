@@ -6,4 +6,4 @@ This file is a enviroment builder for [Comty repository](https://github.com/rage
 
 To build container run `initialize_repo.sh`
 
-This is compatible with podman & docker
+This is compatible with podman or docker
